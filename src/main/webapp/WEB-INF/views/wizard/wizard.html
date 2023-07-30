@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Wizard</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./resources/wizard/style.css">
+    <script src="script.js" defer></script>
+    <script src="./resources/wizard/script.js" defer></script>
+</head>
+<body>
+<div class="content">
+    <div class="progress">
+        <div class="progress_item">
+            <p>Personal data
+        </div>
+        <div class="line"></div>
+        <div class="progress_item">
+            <p>Position
+        </div>
+        <div class="line"></div>
+        <div class="progress_item">
+            <p>Description
+        </div>
+        <div class="line"></div>
+        <div class="progress_item">
+            <p>Contacts
+        </div>
+        <div class="line"></div>
+        <div class="progress_item">
+            <p>Skills
+        </div>
+        <div class="line"></div>
+        <div class="progress_item">
+            <p>Work history
+        </div>
+        <div class="line"></div>
+        <div class="progress_item">
+            <p>Education
+        </div>
+        <div class="line"></div>
+        <div class="progress_item">
+            <p>Addition information
+        </div>
+    </div>
+    <div class="form_cv">
+        <form id="cvForm" th:method="POST" th:action="@{/edit}" th:object="${cv}">
+            <div class="form_wrapper first ">
+                <h3>Personal data</h3>
+                <div class="form-group">
+                    <div class="label_input">
+                        <label for="FirstName">First name:</label>
+                        <input type="text" id="FirstName" placeholder="first name" th:field="*{firstName}">
+                    </div>
+                    <div class="label_input">
+                        <label for="LastName">Last name:</label>
+                        <input type="text" id="LastName" placeholder="last name" th:field="*{lastName}">
+                    </div>
+                </div>
+            </div>
+            <div class="form_wrapper">
+                <h3>Position</h3>
+                <div class="form-group">
+                    <div class="label_input">
+                        <label for="Position">Position:</label>
+                        <input type="text" id="Position" th:field="*{position}" placeholder="position">
+                    </div>
+                </div>
+            </div>
+            <div class="form_wrapper">
+                <h3>Description</h3>
+                <div class="form-group">
+                    <div class="label_input">
+                        <label for="Position">Description:</label>
+                        <textarea type="text" id="Description" th:field="*{description}" placeholder="description"/>
+                    </div>
+                </div>
+            </div>
+            <div class="form_wrapper element_group">
+                <h3>Contact</h3>
+                <div class="form-group">
+                    <div class="label_input" th:each="contact, itemStat : *{contactsList}">
+                        <label for="Address" th:text="${contact.getTittle()}">Address:</label>
+                        <input type="text" id="Address" placeholder="address"
+                               th:field="*{contactsList[__${itemStat.index}__].data}">
+                        <input type="button" id="AddressRemove" class="remove" value="X">
+                    </div>
+                    <input type="button" id="ContactAdd" class="button" value="Add">
+                </div>
+            </div>
+
+            <div class="form_wrapper">
+                <h3>Skills</h3>
+                <div class="form-group">
+
+                    <div th:each="skill, itemStat : *{skills}" class="label_input">
+                        <input type="text" id="Skill" th:field="*{skills[__${itemStat.index}__]}" placeholder="skill">
+                        <input type="button" id="Remove" class="remove" value="X">
+                    </div>
+                </div>
+                <input type="button" id="SkillAdd" class="button" value="Add">
+            </div>
+            <div class="form_wrapper element_group">
+                <h3>Work experience</h3>
+                <div class="form-group " th:each="work, stat : *{workExperience}">
+                    <div class="label_input">
+                        <label for="WorkPeriod">Period:</label>
+                        <input type="text" id="WorkPeriod" placeholder="period"
+                               th:field="*{workExperience[__${stat.index}__].period}">
+                    </div>
+                    <div class="label_input">
+                        <label for="WorkPosition">Position:</label>
+                        <input type="text" id="WorkPosition" placeholder="position"
+                               th:field="*{workExperience[__${stat.index}__].position}">
+                    </div>
+                    <div class="label_input">
+                        <label for="WorkCompany">Company:</label>
+                        <input type="text" id="WorkCompany" placeholder="company"
+                               th:field="*{workExperience[__${stat.index}__].organization}">
+                    </div>
+                    <div class="label_input">
+                        <label for="WorkResponsibility">Responsibility:</label>
+                        <textarea type="text" id="WorkResponsibility" placeholder="responsibility"
+                                  th:field="*{workExperience[__${stat.index}__].responsibility}"/>
+                    </div>
+                    <input type="button" id="WorkRemove" class="remove" value="X">
+                </div>
+                <input type="button" id="WorkAdd" class="button" value="Add">
+            </div>
+
+            <div class="form_wrapper last">
+                <h3>Education</h3>
+                <div class="form-group element_group" th:each="edu, stat : *{education}">
+                    <div class="label_input">
+                        <label for="EducationPeriod">Period:</label>
+                        <input type="text" id="EducationPeriod" placeholder="Period"
+                               th:field="*{education[__${stat.index}__].period}">
+                    </div>
+                    <div class="label_input">
+                        <label for="EducationDegree">Degree:</label>
+                        <input type="text" id="EducationDegree" placeholder="Degree"
+                               th:field="*{education[__${stat.index}__].degree}">
+                    </div>
+                    <div class="label_input">
+                        <label for="EducationUniversity">University:</label>
+                        <input type="text" id="EducationUniversity" placeholder="University"
+                               th:field="*{education[__${stat.index}__].university}">
+                    </div>
+                    <input type="button" id="EducationRemove" class="remove" value="X">
+                </div>
+                <input type="button" id="EducationAdd" class="button" value="Add">
+            </div>
+            <div class="control">
+            <input type="button" id="Previous" class="control_button" value="Previous">
+            <input type="button" id="Next" class="control_button" value="Next">
+            <input type="submit" id="Submit" class="control_button" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

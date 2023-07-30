@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <style>
+        input {
+        width: 90px;
+        height: 30px;
+        margin:10px;
+        }
+    </style>
+    <meta charset="ISO-8859-1">
+    <title>CV Templare</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/new}">
+    <input type="submit" value="New" id="New" class="button">
+</form>
+<form th:method="GET" th:action="@{/edit}">
+    <input type="hidden" name="user_id" value="poliakovaleek" />
+    <input type="hidden" name="cv_id" value="firstcv" />
+    <input type="submit" value="Edit" id="Edit" class="button">
+</form>
+<form th:method="GET" th:action="@{/template1/template}">
+    <input type="hidden" name="user_id" value="poliakovaleek" />
+    <input type="hidden" name="cv_id" value="firstcv" />
+    <input type="submit" value="Show" id="Show" class="button">
+</form>
+
+</body>

@@ -1,0 +1,146 @@
+body {
+	display:flex;
+	justify-content: center;
+	font-family: 'Arial';
+	background: #ddeefc;
+}
+.content {
+	position:absolute;
+	width:1000px;
+}
+
+form{
+	background:#FFFFFF;
+	border: solid 2px #66B2FF;
+	border-radius:1.5em;
+	width:1030px;
+	#padding:10px
+	display:flex;
+	justify-content: center;
+}
+h3{
+	margin-left:20px;
+	font-size:28px;
+}
+.progress{
+	float:none;
+	display:flex;
+	margin-bottom:20px;
+	text-align: justify;
+	width:1000px;
+}
+.progress_item{
+	position:relative;
+	display: flex;
+	border: solid #A0A0A0 1px;
+	border-radius:2em;
+	background: #E0E0E0;
+	width: 100px;
+	height: 50px;
+	margin: auto;
+	margin-left:0px;
+	margin-right:0px;
+
+}
+.line{
+	position:relative;
+	display: flex;
+	margin:auto;
+	background: #A0A0A0;
+	height: 3px;
+	margin-left:0px;
+	margin-right:0px;
+	width: 25px;
+}
+.progress_item p {
+	margin:auto;
+	vertical-align:middle;
+	text-align:center;
+}
+.form_cv{
+#	position:relative;
+}
+
+.form_wrapper{
+	border:solid #C0C0C0 2px;
+	border-radius: 1.0em;
+	width:980px;
+	margin: auto;
+	margin-top:20px;
+	display:none;
+	background: #FFFDEC;
+}
+.form-group {
+	padding: 10px;
+	margin:10px;
+}
+
+.label_input{
+	margin-bottom:20px;
+}
+
+.form-group label {
+	font-weight: bold;
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+label{
+	display:inline-block;
+	width:140px;
+	height:25px;
+	vertical-align:middle;	
+
+}
+textarea{
+	width:650px;
+	height:150px;
+	font-size: 18px;
+}
+
+.form-group input {
+	display:table-cell;
+	font-size: 18px;
+	margin-right: 20px;
+	height:25px; 
+	width:650px;
+}
+
+.button, .form-group input.button{
+	height: 30px;
+	width: 120px;
+	font-weight:bold;	
+	margin: 10px;
+	font-size: 14px;
+}
+
+input.remove{
+	background: #CCE5FF;
+	border-color:#3399FF;
+	color:#CC0000;
+	width:32px;	
+	height: 32px;
+}
+.control{
+	display:flex;
+	justify-content: center;
+	width:1000px;
+	padding:5px;
+}
+.control_button{
+	margin: 10px;
+	height: 40px;
+	width:200px;
+	font-size:20px;
+	font-weight:bold;
+	background: #99CCFF;
+	color:#202020
+}
+
+input:disabled{
+	background: #E0E0E0;
+}
+
+.active{
+	display:block;
+}

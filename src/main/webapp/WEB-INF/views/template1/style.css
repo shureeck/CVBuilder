@@ -1,0 +1,105 @@
+body {
+	display:flex;
+	justify-content: center;
+	background: #ddeefc;
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	
+}
+h2 {
+		font-size: 48px;
+		margin: 0px;
+		font-style: normal;
+}
+.content{
+	position: relative;
+	display: block;
+	border: solid black 1px;
+	padding: 5px;
+	width: 1145px;
+
+
+}
+.left {
+	float: left;
+	width: 350px;
+	margin:0;
+	height: 100%;
+	background: #003D73;
+	#display:flex;
+	justify-content: center;
+	color: #FFFFFF;
+	
+}	
+.right {
+	display: inline-block;
+	width: 785px;
+	margin:0;
+	height: 100%;
+	background: #FFFFFF;
+}
+.image {
+#	position:relative;
+	margin:27.5px 27.5px 5px 27.5px;
+	
+	justify-content: center;
+}
+.leftContent{
+	width: 295px;
+	margin:5px 27.5px 5px 27.5px;
+	word-break:keep-all;
+	 
+}
+.rightContent{
+	padding: 20px;
+	word-break:keep-all;
+	 
+}
+.rightContent h3{
+	color: #003D73;
+	border-top: 3px solid #D5D6D6;
+	border-bottom: 3px solid #D5D6D6;
+}
+.leftContent h3 {
+	background-color:#00315C;
+	margin:5px -27.5px;
+	padding-left:27.5px;
+
+}
+.expipience{
+		position: relative;
+	display: block;
+}
+.expipienceDate{
+	#border: solid 1px;
+	display: inline-block;
+	float:left;
+	height:100%;
+	width:190px;
+}
+.experienceContent h4{
+	margin-top:0px;	
+}
+.experienceContent{
+	#border: solid 1px;
+	display: inline-block;
+	word-break:keep-all;
+	width: 539px;
+	padding-left:5px;
+	padding-right:5px;
+}
+.contact_data h4{
+	margin-bottom:0;		
+}
+
+h3, .position {
+	font-size: 24px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+h4{
+	font-size: 18px;
+}
+img {
+	width:295px;
+	height:295px;	
+}

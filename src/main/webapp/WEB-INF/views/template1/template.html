@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>CV Templare</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/CVBuilder/resources/template1/style.css">
+</head>
+<body>
+<div class="content">
+    <div class="left">
+        <div class="image">
+            <img src="/CVBuilder/resources/template1/photo.JPG" alt="Photo">
+        </div>
+        <div class="name leftContent">
+            <h2 th:text="${cv.getFullName()}">Firstname Lastname</h2>
+        </div>
+        <div class="position leftContent" th:text="${cv.getPosition()}">My Desire Position</div>
+        <div class="contact leftContent">
+            <div id="leftH3">
+                <h3>Contact</h3>
+            </div>
+            <div class="contact_data" th:each="contact : ${cv.getContactsList()}">
+                <h4 th:text="${contact.getTittle()}">Address </h4>
+                <div th:text="${contact.getData()}">Gdansk, 80-396 Poland</div>
+            </div>
+        </div>
+        <div class="skils leftContent">
+            <div id="leftH3">
+                <h3>Skills</h3>
+            </div>
+            <div th:each="skill : ${cv.getSkills()}">
+                <p th:text="${skill}">Java
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div id="description" class="rightContent" th:text="${cv.getDescription()}">
+            Description should be here
+        </div>
+        <div id="wrork" class="rightContent">
+            <h3>Work history</h3>
+            <div class="expipience" th:each="work : ${cv.getWorkExperience()}">
+                <div id="date" class="expipienceDate" th:text="${work.getPeriod()}">Period</div>
+                <div class="experienceContent">
+                    <div id="possition"><h4 th:text="${work.getPosition()}">Position</h4></div>
+                    <div id="company" th:text="${work.getOrganization()}">Company</div>
+                    <div id="responsibility">
+                        <ul>
+                            <div th:each="responsibility : ${work.getResponsibility()}">
+                                <li th:text="${responsibility}">Maintaining existing test utilities.</li>
+                            <div/>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="education" class="rightContent">
+            <h3>Education</h3>
+            <div class="expipience" th:each="education:${cv.getEducation}">
+                <div id="date" class="expipienceDate" th:text="${education.getPeriod()}">period</div>
+                <div class="experienceContent">
+                    <div id="school"><h4 th:text="${education.getDegree()}">Decree</h4></div>
+                    <div id="tittle" th:text="${education.getUniversity()}">University
+                    </div>
+                </div>
+                <div>
+                </div>
+                <div id="education" class="rightContent">
+                    <h3>Additional info</h3>
+                    <div>
+                        I agree to the processing of personal data provided
+                        in this document for realizing current and future
+                        recruitment processes pursuant to the Personal Data
+                        Protection Act of 10 May 2018 (Journal of Laws 2018,
+                        item 1000) and in agreement with Regulation (EU)
+                        2016/679 of the European Parliament and of the
+                        Council of 27 April 2016 on the protection of natural
+                        persons with regard to the processing of personal
+                        data and on the free movement of such data, and
+                        repealing Directive 95/46/EC (General Data
+                        Protection Regulation).
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</body>
+</html>
