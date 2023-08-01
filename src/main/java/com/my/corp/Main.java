@@ -8,14 +8,21 @@ import com.my.corp.dao.Dao;
 import com.my.corp.entity.CVEntity;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 
 public class Main {
+    public static Map a  = new LinkedHashMap(Map.of("key1", "value1", "map2", "value2"));
     public static void main(String... args) throws JsonProcessingException {
-       Dao dao = new AnnotationConfigApplicationContext(SpringConfig.class)
+        new Handler().handle(a);
+     /*  Dao dao = new AnnotationConfigApplicationContext(SpringConfig.class)
                .getBean("CVDaoPostgreSQL", CVDaoPostgreSQL.class);
        CVEntity entity = dao.get("poliakovaleek", "firstcv");
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(entity));
-        System.out.println("Done");
+        System.out.println("Done");*/
+
+
     }
 }

@@ -9,7 +9,7 @@ public class Handler {
             final String message = "Lambda tests DONE";
         }
         System.out.println("Class: " + object.getClass());
-        System.out.println(Utils.objectToJSON(object));
+    //    System.out.println(Utils.objectToJSON(object));
 
         return new Resp();
     }
