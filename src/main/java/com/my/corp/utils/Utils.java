@@ -35,9 +35,15 @@ public class Utils {
 
     public static String getSecretValue(String secretName) {
         log.info(LoggerMessages.getMessage("read.secret", secretName));
-        AWSSecretsManager manager = AWSSecretsManagerClientBuilder.standard().build();
-        GetSecretValueRequest request = new GetSecretValueRequest().withSecretId(secretName);
-        GetSecretValueResult result = manager.getSecretValue(request);
-        return result.getSecretString();
+        try {
+            AWSSecretsManager manager = AWSSecretsManagerClientBuilder.standard().build();
+            GetSecretValueRequest request = new GetSecretValueRequest().withSecretId(secretName);
+            GetSecretValueResult result = manager.getSecretValue(request);
+            return result.getSecretString();
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            return "NULL";
+        }
     }
 }
