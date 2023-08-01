@@ -13,7 +13,7 @@ import java.util.Map;
 
 
 public class Main {
-    public static Map a  = new LinkedHashMap(Map.of("key1", "value1", "map2", "value2"));
+    public static LinkedHashMap a  = new LinkedHashMap(Map.of("key1", "value1", "map2", "value2"));
     public static void main(String... args) throws JsonProcessingException {
         new Handler().handle(a);
      /*  Dao dao = new AnnotationConfigApplicationContext(SpringConfig.class)
