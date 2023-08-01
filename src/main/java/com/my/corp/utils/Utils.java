@@ -42,8 +42,10 @@ public class Utils {
             GetSecretValueRequest request = new GetSecretValueRequest().withSecretId(secretName);
             System.out.println(3);
             GetSecretValueResult result = manager.getSecretValue(request);
+            System.out.println(4);
             return result.getSecretString();
         }catch (Exception e){
+            System.out.println(5);
             e.printStackTrace();
             System.out.println(e.getMessage());
             return "NULL";
