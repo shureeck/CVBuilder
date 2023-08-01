@@ -11,6 +11,6 @@ public class Handler {
         System.out.println("Class: " + object.getClass());
     //    System.out.println(Utils.objectToJSON(object));
 
-        return new Resp();
+        return Utils.objectToJSON(new Resp());
     }
 }
