@@ -17,7 +17,9 @@ public class Secret {
 
     private Secret() {
         if (Objects.nonNull(secretName) && !secretName.isEmpty()) {
+            System.out.println("Get secret:" + secretName);
             String secretString = Utils.getSecretValue(secretName);
+            System.out.println(secretString);
             secretValue = Utils.jsonToObject(secretString, HashMap.class);
             valid = true;
         }
@@ -31,6 +33,7 @@ public class Secret {
     }
 
     public String getValue(String key) {
+        System.out.println("Get secret value: " + key);
         if (Objects.isNull(secretValue)) {
             return null;
         } else {
