@@ -10,7 +10,7 @@ import java.util.Objects;
 @Component
 public class Secret {
     private static Secret secret = null;
-    private HashMap<String, String> secretValue;
+    private HashMap<String, Object> secretValue;
     @Getter
     private String secretName = System.getenv("SECRET_NAME");
     private boolean valid = false;
@@ -39,7 +39,9 @@ public class Secret {
             return null;
         } else {
             System.out.println(secretValue.get(key));
-            return secretValue.get(key);
+            Object value = secretValue.get(key);
+            return String.valueOf(value);
+
         }
     }
 
