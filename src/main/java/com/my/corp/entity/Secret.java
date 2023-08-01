@@ -35,8 +35,10 @@ public class Secret {
     public String getValue(String key) {
         System.out.println("Get secret value: " + key);
         if (Objects.isNull(secretValue)) {
+            System.out.println("Map is NULL");
             return null;
         } else {
+            System.out.println(secretValue.get(key));
             return secretValue.get(key);
         }
     }

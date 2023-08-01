@@ -37,19 +37,11 @@ public class Utils {
     public static String getSecretValue(String secretName) {
         log.info(LoggerMessages.getMessage("read.secret", secretName));
         try {
-            System.out.println(1);
             AWSSecretsManager manager = AWSSecretsManagerClientBuilder.standard().withRegion("eu-west-1").build();
-            System.out.println(2);
             GetSecretValueRequest request = new GetSecretValueRequest().withSecretId(secretName);
-            System.out.println(3);
-            ListSecretsResult l = manager.listSecrets(new ListSecretsRequest());
-            System.out.println(l.getSecretList().size());
-            System.out.println(l.getSecretList().stream().map(SecretListEntry::getName).collect(Collectors.joining(",")));
             GetSecretValueResult result = manager.getSecretValue(request);
-            System.out.println(4);
             return result.getSecretString();
         } catch (Exception e) {
-            System.out.println(5);
             e.printStackTrace();
             System.out.println(e.getMessage());
             return "NULL";
