@@ -33,7 +33,7 @@ public class Handler {
                         .getBean("CVDaoPostgreSQL", CVDao.class);
                 return new APIGatewayProxyResponseEvent()
                         .withStatusCode(200)
-                        .withBody(Utils.objectToJSON(dao.get("poliakovaleek", null)))
+                        .withBody(Utils.objectToJSON(dao.get("poliakovaleek", parameters.get("cvID"))))
                         .withIsBase64Encoded(false);
             } else {
                 return new APIGatewayProxyResponseEvent()
