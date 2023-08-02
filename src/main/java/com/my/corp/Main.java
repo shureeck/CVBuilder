@@ -18,7 +18,7 @@ public class Main {
     public static void main(String... args) throws JsonProcessingException {
        // new Handler().handle(a);
       Dao dao = new AnnotationConfigApplicationContext(SpringConfig.class)
-               .getBean("CVDao", CVDao.class);
+               .getBean("CVDaoPostgreSQL", CVDaoPostgreSQL.class);
        CVEntity entity = dao.get("poliakovaleek", "firstcv");
         ObjectMapper mapper = new ObjectMapper();
         System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(entity));
