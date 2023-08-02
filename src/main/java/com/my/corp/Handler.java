@@ -3,6 +3,7 @@ package com.my.corp;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.my.corp.configuration.SpringConfig;
 import com.my.corp.dao.CVDao;
+import com.my.corp.dao.CVDaoPostgreSQL;
 import com.my.corp.dao.Dao;
 import com.my.corp.utils.Utils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -30,7 +31,7 @@ public class Handler {
                         .withIsBase64Encoded(false);
             } else if (parameters.containsKey("cvID")) {
                 Dao dao = new AnnotationConfigApplicationContext(SpringConfig.class)
-                        .getBean("CVDaoPostgreSQL", CVDao.class);
+                        .getBean("CVDaoPostgreSQL", CVDaoPostgreSQL.class);
                 return new APIGatewayProxyResponseEvent()
                         .withStatusCode(200)
                         .withBody(Utils.objectToJSON(dao.get("poliakovaleek", parameters.get("cvID"))))
