@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Component
 public class CVHandler implements IHandler {
@@ -36,6 +37,8 @@ public class CVHandler implements IHandler {
         }
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(200)
+                .withHeaders(Map.of("Access-Control-Allow-Origin", "*",
+                        "Content-Type", "application/json"))
                 .withBody(Utils.objectToJSON(entity))
                 .withIsBase64Encoded(false);
     }
