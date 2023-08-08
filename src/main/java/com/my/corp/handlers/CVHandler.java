@@ -32,6 +32,8 @@ public class CVHandler implements IHandler {
         } catch (RuntimeException e) {
             return new APIGatewayProxyResponseEvent()
                     .withStatusCode(404)
+                    .withHeaders(Map.of("Access-Control-Allow-Origin", "*",
+                            "Content-Type", "application/json"))
                     .withBody(String.format("CV with ID [%s] not found", id))
                     .withIsBase64Encoded(false);
         }
