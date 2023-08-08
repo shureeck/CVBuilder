@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 @Component
 public class CVSHandler implements IHandler {
@@ -19,6 +20,8 @@ public class CVSHandler implements IHandler {
     public APIGatewayProxyResponseEvent handle(LinkedHashMap<String, Object> object) {
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(200)
+                .withHeaders(Map.of("Access-Control-Allow-Origin", "*",
+                        "Content-Type", "application/json"))
                 .withBody(Utils.objectToJSON(dao.get("poliakovaleek", null)))
                 .withIsBase64Encoded(false);
     }

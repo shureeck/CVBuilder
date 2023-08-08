@@ -15,6 +15,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Handler {
@@ -38,6 +39,8 @@ public class Handler {
             } else {
                 return new APIGatewayProxyResponseEvent()
                         .withStatusCode(400)
+                        .withHeaders(Map.of("Access-Control-Allow-Origin", "*",
+                                "Content-Type", "application/json"))
                         .withIsBase64Encoded(false)
                         .withBody("Unknown set of parameters");
             }
